@@ -2,7 +2,7 @@
 # many times we are running on k8s environment and you would like to export all deployments/services/jobs etc. into yaml
 # in order to redeploy the k8s or even duplicate it for debugging
 # the script bellow automates export entire k8s cluster.
-#
+
 
 i=$((0))
 for n in $(kubectl get -o=custom-columns=NAMESPACE:.metadata.namespace,KIND:.kind,NAME:.metadata.name pv,pvc,configmap,ingress,service,secret,deployment,statefulset,hpa,job,cronjob --all-namespaces | grep -v 'secrets/default-token')
